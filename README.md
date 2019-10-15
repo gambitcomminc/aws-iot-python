@@ -1,6 +1,8 @@
 # aws-iot-python
 Utilities using the Python AWS SDK
 
+Used for creating large-scale prototypes with MIMIC MQTT Simulator https://www.gambitcomm.com/site/mqttsimulator.php
+
     % python list_things.py
     Usage: listthings.py
   	-a|--access access-key  AWS_ACCESS_KEY_ID
