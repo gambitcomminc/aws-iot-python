@@ -1,8 +1,8 @@
 # aws-iot-python
 Utilities using the Python AWS SDK
 
-Used for creating 
-online MQTT labs at https://mqttlab.iotsim.io, and
+Used for creating the AWS
+online MQTT lab at https://mqttlab.iotsim.io/aws, and
 large-scale prototypes with MIMIC MQTT Simulator https://www.gambitcomm.com/site/mqttsimulator.php
 
     % python list_things.py
