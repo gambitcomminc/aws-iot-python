@@ -1,5 +1,5 @@
 # aws-iot-python
-Utilities using the Python AWS SDK
+Utilities using the Python AWS SDK https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/index.html
 
 Used for creating the AWS
 online MQTT lab at https://mqttlab.iotsim.io/aws, and
