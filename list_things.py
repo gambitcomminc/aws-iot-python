@@ -26,12 +26,14 @@ import sys
 ###########################################################################
 class MyApp:
 	def __init__(self):
+		self.region = None
 		self.access = None
 		self.secret = None
 		self.verbose = False
 
 	def usage(self):
 		print ("Usage: listthings.py")
+		print ("\t-r|--region region-name AWS_REGION")
 		print ("\t-a|--access access-key  AWS_ACCESS_KEY_ID")
 		print ("\t-s|--secret secret-key  AWS_SECRET_ACCESS_KEY")
 		print ("\t[-v|--verbose]          verbose output")
@@ -39,7 +41,7 @@ class MyApp:
 
 	def command_line(self):
 		try:
-			opts, args = getopt.getopt(sys.argv[1:], "a:s:v", ["access=", "secret=", "verbose"])
+			opts, args = getopt.getopt(sys.argv[1:], "h:p:r:a:s:v", ["host=", "port=", "region=", "access=", "secret=", "verbose"])
 		except getopt.GetoptError as err:
 			# print help information and exit:
 			print (str(err)) # will print something like "option -a not recognized"
@@ -49,12 +51,22 @@ class MyApp:
 		for o, a in opts:
 			if o in ("-v", "--verbose"):
 			    self.verbose = True
+			elif o in ("-r", "--region"):
+				self.region = a
 			elif o in ("-a", "--access"):
 				self.access = a
 			elif o in ("-s", "--secret"):
 				self.secret = a
+			elif o in ("-h", "--host"):
+				dummy = a
+			elif o in ("-p", "--port"):
+				dummy = a
 			else:
 			    assert False, "unhandled option"
+
+		if self.region == None:
+			self.usage()
+			sys.exit(1)
 
 		if self.access == None:
 			self.usage()
@@ -69,6 +81,7 @@ class MyApp:
 
 		client = boto3.client(
 		    'iot',
+		    region_name = self.region,
 		    aws_access_key_id = self.access,
 		    aws_secret_access_key = self.secret
 		    )
