@@ -12,7 +12,7 @@ large-scale prototypes with MIMIC MQTT Simulator https://www.gambitcomm.com/site
   	-s|--secret secret-key  AWS_SECRET_ACCESS_KEY
   	[-v|--verbose]          verbose output
 
-    % python list_things.py -r us-east-2 -a 'XXXXX' -s 'XXXX'
+    % python list_things.py -r us-east-1 -a 'XXXXX' -s 'XXXX'
     {u'things': [{u'thingArn': u'arn:aws:iot:us-east-1:409128494776:thing/mimic-10', u'version': 1,
     u'thingName': u'mimic-10', u'attributes': {}}, {u'thingArn': u'arn:aws:iot:us-east-1:409128494776:thing/mimic-9',
     u'version': 1, u'thingName': u'mimic-9', u'attributes': {}},...
